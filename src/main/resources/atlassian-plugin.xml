@@ -13,15 +13,13 @@
     <!-- add our web resources -->
     <web-resource key="jpext-resources" name="jpext Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
-        <resource type="download" name="jpext.css" location="/css/jpext.css"/>
-        <resource type="download" name="jpext.js" location="/js/jpext.js"/>
+
         <resource type="download" name="images/" location="/images"/>
 
         <context>jpext</context>
     </web-resource>
 
-    <web-resource key="jpext-resources--main-panel" name="jpext Web Resources for Main Panel">
+    <web-resource key="jpext-resources--project-panel" name="jpext Web Resources for Project Panel">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <dependency>com.atlassian.auiplugin:aui-select2</dependency>
         <dependency>com.atlassian.auiplugin:aui-experimental-soy-templates</dependency>
@@ -30,16 +28,37 @@
                 <functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
             </transformer>
         </transformation>
-        <!--<resource type="download" name="???-soy.js"-->
-                  <!--location="templates-soy/???.soy"/>-->
-        <!--<resource type="download" name="kitchen-duty-plugin&#45;&#45;planning-page-controller.js"-->
-                  <!--location="/js/kitchen-duty-plugin&#45;&#45;planning-page-controller.js"/>-->
+        <!--soy-->
+        <resource type="download" name="project-panel-closures-soy.js"
+                  location="templates-soy/project-panel-closures.soy"/>
+        <!--javascript-->
+        <resource type="download" name="project-panel.js"
+                  location="/js/project-panel.js"/>
+        <!--css-->
+        <resource type="download" name="project-panel.css"
+                  location="/css/project-panel.css"/>
+        <!--template-->
+        <resource type="download" name="project-panel.vm"
+                  location="/templates/project-panel.vm"/>
         <context>jpext</context>
+        <context>atl.general</context>
     </web-resource>
 
     <rest name="Jira Project Extensions Resources" i18n-name-key="jpext.rest.resources.name" key="jpext-rest-resources" path="/jpext" version="1.0">
         <description key="jpext.rest.resources.description">All Kitchen Duty REST Resources</description>
         <package>com.michabond.rest</package>
     </rest>
+
+    <!-- Project Centric Panel -->
+    <web-item key="jpext-projectcentric-panel" i18n-name-key="projectcentricpanel.jpext.name" section="jira.project.sidebar.plugins.navigation" weight="310">
+        <label>JPEXT Web Panel</label>
+        <link>/projects/$pathEncodedProjectKey?selectedItem=com.atlassian.jira.jira-projects-plugin:project-panel</link>
+        <param name="iconClass" value="aui-icon aui-icon-small aui-iconfont-file-code"/>
+    </web-item>
+
+    <web-panel key="jpext-projectcentric-panel-key" location="com.atlassian.jira.jira-projects-plugin:project-panel">
+        <resource type="velocity" name="view" location="templates/project-panel.vm" />
+        <!--<context-provider class="com.jtricks.ui.tabs.context.ProjectPanelContextProvider"/>-->
+    </web-panel>
     
 </atlassian-plugin>

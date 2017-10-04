@@ -1,0 +1,10 @@
+<head>
+    <title>JPE Project Panel</title>
+##    <meta name="decorator" content="jpext">
+    $webResourceManager.requireResourcesForContext("jpext")
+</head>
+<body>
+    <div id="project-panel-heading">
+        <h2>Welcome to JPE Project Panel</h2>
+    </div>
+</body>
