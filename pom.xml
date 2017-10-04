@@ -171,6 +171,8 @@
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
                     <productDataVersion>${jira.version}</productDataVersion>
+                    <!-- Add the productDataPath configuration here -->
+                    <productDataPath>${project.basedir}/src/test/resources/generated-test-resources.zip</productDataPath>
                     <!-- Uncomment to install TestKit backdoor in JIRA. -->
                     <!--
                     <pluginArtifacts>
@@ -248,7 +250,7 @@
     </build>
 
     <properties>
-        <jira.version>7.2.4</jira.version>
+            <jira.version>7.5.0</jira.version>
         <amps.version>6.2.11</amps.version>
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
