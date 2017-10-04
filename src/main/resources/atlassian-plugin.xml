@@ -37,7 +37,7 @@
         <context>jpext</context>
     </web-resource>
 
-    <rest name="Jira Project Extensions Resources" i18n-name-key="jpext.rest.resources.name" key="jpext-resources" path="/jpext" version="1.0">
+    <rest name="Jira Project Extensions Resources" i18n-name-key="jpext.rest.resources.name" key="jpext-rest-resources" path="/jpext" version="1.0">
         <description key="jpext.rest.resources.description">All Kitchen Duty REST Resources</description>
         <package>com.michabond.rest</package>
     </rest>

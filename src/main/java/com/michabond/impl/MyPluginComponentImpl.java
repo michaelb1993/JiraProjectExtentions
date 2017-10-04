@@ -19,9 +19,6 @@ public class MyPluginComponentImpl implements MyPluginComponent
     @ComponentImport
     private SearchService searchService;
 
-    @ComponentImport
-    private PageBuilderService pageBuilderService;
-
     @Inject
     public MyPluginComponentImpl(final ApplicationProperties applicationProperties)
     {
