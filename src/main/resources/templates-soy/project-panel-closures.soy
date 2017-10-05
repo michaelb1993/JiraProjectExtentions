@@ -4,23 +4,20 @@
 */
 {template .issueSearch}
 <form class="aui" id="jpext-issue-select-form">
-
-    <div class="field-group">
-        <label for="jpext-issue-select">Issues</label>
-        <div id="jpext-issue-select"
-             name="jpext-issue-select"
-             class="jpext-aui-select"
-             multiple=""
-             placeholder="start typing a issue summary ..">
-        </div>
-        <div class="description">The users that should have kitchen duty.</div>
+    <label for="jpext-issue-select">Issues</label>
+    <div id="jpext-issue-select"
+         name="jpext-issue-select"
+         class="jpext-aui-select"
+         multiple=""
+         placeholder="start typing a issue summary ..">
     </div>
-    <div class="buttons-container">
-        <div class="buttons">
-            <input class="button submit" type="submit"
-                   id="jpext-issue-select-save-button"
-                   value="show"/>
-        </div>
+    <div class="buttons">
+        <input class="button submit" type="submit"
+               id="jpext-issue-select-save-button"
+               value="show"/>
+    </div>
+    <div id="info">
+        <a id="issue-search-info" href="#" class="aui-icon aui-icon-small aui-iconfont-info issue-search-details-icon inline-dialog-info-trigger"></a>
     </div>
 
 </form>

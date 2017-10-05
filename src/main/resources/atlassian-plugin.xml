@@ -22,6 +22,7 @@
     <web-resource key="jpext-resources--project-panel" name="jpext Web Resources for Project Panel">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-inline-dialog2</dependency>
         <dependency>com.atlassian.auiplugin:aui-experimental-soy-templates</dependency>
         <transformation extension="soy">
             <transformer key="soyTransformer">

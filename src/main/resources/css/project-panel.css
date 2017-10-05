@@ -1,3 +1,31 @@
+/**
+    Project Panel Header
+ */
 #project-panel-heading h2 {
     color: deeppink;
+    margin-bottom: 25px;
+}
+
+/**
+    Issue search form
+ */
+
+#jpext-issue-select-form label {
+    float: left;
+    margin-right: 15px;
+}
+
+#jpext-issue-select-form .aui-select2-container {
+    float: left;
+    margin-right: 10px;
+}
+
+#jpext-issue-select-form div.buttons {
+    float: left;
+    margin-right: 10px;
+}
+
+#jpext-issue-select-form a.issue-search-details-icon {
+    float: left;
+    margin-top: 2px;
 }
