@@ -1,24 +1,24 @@
 {namespace JIRA.Templates.JPEXT}
 /**
-* Kitchen Duty Planning Page - User Search Template
+* JPEXT Project Panel - Issue Search Template
 */
 {template .issueSearch}
-<form class="aui" id="kdp-user-select-form">
+<form class="aui" id="jpext-issue-select-form">
 
     <div class="field-group">
-        <label for="kdp-user-select">Users</label>
-        <div id="kdp-user-select"
-             name="kdp-user-select"
-             class="kdp-aui-select"
+        <label for="jpext-issue-select">Issues</label>
+        <div id="jpext-issue-select"
+             name="jpext-issue-select"
+             class="jpext-aui-select"
              multiple=""
-             placeholder="start typing a username ..">
+             placeholder="start typing a issue summary ..">
         </div>
         <div class="description">The users that should have kitchen duty.</div>
     </div>
     <div class="buttons-container">
         <div class="buttons">
             <input class="button submit" type="submit"
-                   id="kdp-user-select-save-button"
+                   id="jpext-issue-select-save-button"
                    value="show"/>
         </div>
     </div>

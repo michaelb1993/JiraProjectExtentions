@@ -14,11 +14,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class IssueSearchResourceModel {
 
-    @XmlElement
-    private String key;
 
     @XmlElement
-    private String summary;
+    private String id;
+
+    @XmlElement
+    private String text;
 
     @XmlElement
     private String cf;
@@ -27,34 +28,34 @@ public class IssueSearchResourceModel {
     }
 
     public IssueSearchResourceModel(Issue issue) {
-        this.key = issue.getKey();
-        this.summary = issue.getSummary();
+        this.id = issue.getKey();
+        this.text = issue.getSummary();
         CustomField cf = ComponentAccessor.getCustomFieldManager().getCustomFieldObject("customfield_10000");
         String cf_value = String.valueOf(issue.getCustomFieldValue(cf));
     }
 
     /**
-     * Key
+     * Id
      */
 
-    public String getKey() {
-        return key;
+    public String getId() {
+        return this.id;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
-     * Summary
+     * Text
      */
 
-    public String getSummary() {
-        return summary;
+    public String getText() {
+        return this.text;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setText(String text) {
+        this.text = text;
     }
 
     /**

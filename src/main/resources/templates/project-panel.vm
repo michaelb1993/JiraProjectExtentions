@@ -7,4 +7,6 @@
     <div id="project-panel-heading">
         <h2>Welcome to JPE Project Panel</h2>
     </div>
+
+    <div id="jpext-issue-select-container"></div>
 </body>
