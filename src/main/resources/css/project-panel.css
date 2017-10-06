@@ -2,8 +2,12 @@
     Project Panel Header
  */
 #project-panel-heading h2 {
-    color: deeppink;
+    color: #247171;
     margin-bottom: 25px;
+}
+
+div.aui-message {
+    width: 300px;
 }
 
 /**

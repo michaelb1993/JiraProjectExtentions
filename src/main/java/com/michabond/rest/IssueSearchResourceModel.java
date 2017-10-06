@@ -17,15 +17,18 @@ import java.util.Map;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class IssueSearchResourceModel {
 
-
+    private static final String[] CF_ARRAY = {
+            "customfield_10000",
+            "customfield_10001",
+            "customfield_10002",
+            "customfield_10003",
+            "customfield_10004"
+    };
     @XmlElement
     private String id;
 
     @XmlElement
     private String text;
-
-    @XmlElement
-    private String cf;
 
     @XmlElement
     private Map<String, Object> args;
@@ -37,15 +40,18 @@ public class IssueSearchResourceModel {
         this.id = issue.getKey();
         this.text = issue.getSummary();
         this.args = new HashMap<>();
+        for (String cfKey : CF_ARRAY) {
+            CustomField cf = ComponentAccessor.getCustomFieldManager().getCustomFieldObject(cfKey);
+            String cfName = String.valueOf(cf);
+            String cfValue = String.valueOf(issue.getCustomFieldValue(cf));
+            this.args.put(cfName, cfValue);
+        }
         this.args.put("str", "this is a string");
         this.args.put("int", 3);
         this.args.put("arr", new Object[] {1, 2.3, true, "well done"});
         Map<String, Object> subMap = new HashMap<>();
         subMap.put("arr", new Object[] {0, false, "inception"});
         this.args.put("subMap", subMap);
-
-        CustomField cf = ComponentAccessor.getCustomFieldManager().getCustomFieldObject("customfield_10000");
-        String cf_value = String.valueOf(issue.getCustomFieldValue(cf));
     }
 
     /**
@@ -71,19 +77,6 @@ public class IssueSearchResourceModel {
     public void setText(String text) {
         this.text = text;
     }
-
-    /**
-     * Cf
-     */
-
-    public String getCf() {
-        return cf;
-    }
-
-    public void setCf(String cf) {
-        this.cf = cf;
-    }
-
 
     public Map<String, Object> getArgs() {
         return args;

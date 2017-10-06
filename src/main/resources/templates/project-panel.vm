@@ -8,5 +8,11 @@
         <h2>Welcome to JPE Project Panel</h2>
     </div>
 
+    <div class="aui-message aui-message-info">
+        <p class="title">
+            <strong>Info!</strong>
+        </p>
+        <p>And this is just content in a Default message.</p>
+    </div>
     <div id="jpext-issue-select-container"></div>
 </body>

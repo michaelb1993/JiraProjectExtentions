@@ -43,17 +43,6 @@ var initIssueSearch = function(restUrl) {
     AJS.$('#jpext-issue-select').on("select2-selecting", function(e) {
         // what you would like to happen
         console.log(e.object);
-        AJS.InlineDialog(
-            AJS.$("#issue-search-info"),
-            "infoDialog",
-            function(contents, trigger, showPopup) {
-                contents.css({"padding":"20px", "width": "200px"}).html('Latest selected company: ' + e.object.text);
-                showPopup();
-                return false;
-            },
-            {
-                gravity: 'w'
-            });
     });
     AJS.$('#jpext-issue-select-form').submit(function (e) {
         e.preventDefault();
@@ -61,6 +50,17 @@ var initIssueSearch = function(restUrl) {
             showSuccessFlag(this.id);
         });
     });
+    AJS.InlineDialog(
+        AJS.$("#issue-search-info"),
+        "infoDialog",
+        function(contents, trigger, showPopup) {
+            contents.css({"padding":"20px", "width": "200px"}).html('This is a search form info message..');
+            showPopup();
+            return false;
+        },
+        {
+            gravity: 'w'
+        });
 };
 
 AJS.toInit(function(){
