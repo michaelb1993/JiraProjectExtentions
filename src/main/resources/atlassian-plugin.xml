@@ -23,6 +23,7 @@
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <dependency>com.atlassian.auiplugin:aui-select2</dependency>
         <dependency>com.atlassian.auiplugin:aui-inline-dialog2</dependency>
+        <dependency>com.atlassian.auiplugin:message</dependency>
         <dependency>com.atlassian.auiplugin:aui-experimental-soy-templates</dependency>
         <transformation extension="soy">
             <transformer key="soyTransformer">
@@ -33,8 +34,12 @@
         <resource type="download" name="project-panel-closures-soy.js"
                   location="templates-soy/project-panel-closures.soy"/>
         <!--javascript-->
+        <resource type="download" name="namespace.js"
+                  location="/js/namespace.js"/>
         <resource type="download" name="project-panel.js"
                   location="/js/project-panel.js"/>
+        <resource type="download" name="sse-listener.js"
+                  location="/js/sse/sse-listener.js"/>
         <!--css-->
         <resource type="download" name="project-panel.css"
                   location="/css/project-panel.css"/>
@@ -46,7 +51,7 @@
     </web-resource>
 
     <rest name="Jira Project Extensions Resources" i18n-name-key="jpext.rest.resources.name" key="jpext-rest-resources" path="/jpext" version="1.0">
-        <description key="jpext.rest.resources.description">All Kitchen Duty REST Resources</description>
+        <description key="jpext.rest.resources.description">All JPEXT REST Resources</description>
         <package>com.michabond.rest</package>
     </rest>
 

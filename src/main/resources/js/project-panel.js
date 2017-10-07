@@ -9,14 +9,14 @@ var showSuccessFlag = function(message) {
     });
 };
 
-var initIssueSearch = function(restUrl) {
+var initIssueSearch = function() {
     var templateIssueSearch = JIRA.Templates.JPEXT.issueSearch();
     var currentProjectKey = JIRA.API.Projects.getCurrentProjectKey();
 
     var auiUserSelectOptions = {
         ajax: {
             url: function () {
-                return restUrl + '/issue/' + currentProjectKey + '/search';
+                return JPEXT.restUrl + '/issue/' + currentProjectKey + '/search';
             },
             dataType: 'json',
             delay: 250,
@@ -65,8 +65,9 @@ var initIssueSearch = function(restUrl) {
 
 AJS.toInit(function(){
     AJS.log('JPEXT: Project Panel initializing ...');
-    var baseUrl = AJS.params.baseURL;
-    var restUrl = baseUrl + '/rest/jpext/1.0';
+    JPEXT.baseUrl = AJS.params.baseURL;
+    JPEXT.restUrl = JPEXT.baseUrl + '/rest/jpext/1.0';
 
-    initIssueSearch(restUrl);
+    initIssueSearch();
+    JPEXT.sseListener = new SSEListener();
 });
