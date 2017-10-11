@@ -2,12 +2,12 @@ package com.michabond.services;
 
 import com.atlassian.configurable.ObjectConfiguration;
 import com.atlassian.configurable.ObjectConfigurationException;
+import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.service.AbstractService;
 import com.michabond.ao.accessor.AOSubscriptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
 
 public class DBGarbageCollector extends AbstractService {
 
@@ -15,9 +15,13 @@ public class DBGarbageCollector extends AbstractService {
 
     private AOSubscriptionService aoSubscriptionService;
 
-    @Inject
-    public DBGarbageCollector(AOSubscriptionService aoSubscriptionService) {
-        this.aoSubscriptionService = aoSubscriptionService;
+    public DBGarbageCollector() {
+        this.aoSubscriptionService = ComponentAccessor.getOSGiComponentInstanceOfType(AOSubscriptionService.class);
+    }
+
+    @Override
+    public void init(com.opensymphony.module.propertyset.PropertySet props) throws ObjectConfigurationException {
+        super.init(props);
     }
 
     @Override
@@ -27,8 +31,8 @@ public class DBGarbageCollector extends AbstractService {
 
     @Override
     public void run() {
-        LOGGER.warn("Start collecting..");
+        LOGGER.warn("Collecting garbage ..");
         this.aoSubscriptionService.collectGarbage();
-        LOGGER.warn("Finished collecting..");
+        LOGGER.warn("Finished collecting garbage :)");
     }
 }
