@@ -31,8 +31,21 @@ public class AOSubscriptionServiceImpl implements AOSubscriptionService {
     public void collectGarbage() {
         Subscription[] expired = ActiveObjectsHelper.getExpiredSubscriptions(this.ao);
         for (Subscription subscription : expired) {
+            User user = subscription.getUser();
             this.ao.delete(subscription);
             LOGGER.info("Deleted subscription-ao, subscription-id: " + subscription.getSubscriptionId());
+            deleteOrphanRelations(subscription, user);
+        }
+    }
+
+    private void deleteOrphanRelations(Subscription subscription, User user) {
+        if (null == user) {
+            return;
+        }
+        Subscription[] userSubscriptions = user.getSubscriptions();
+        if (null == userSubscriptions || 0 == userSubscriptions.length) {
+            this.ao.delete(user);
+            LOGGER.info("Deleted user-ao, username: " + user.getName());
         }
     }
 

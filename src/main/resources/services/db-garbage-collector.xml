@@ -1,0 +1,4 @@
+<someservice id="db-garbage-collector-id">
+    <description>Responsible for deleting redundant DB records</description>
+    <properties></properties>
+</someservice>
