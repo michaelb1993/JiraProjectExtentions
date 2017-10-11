@@ -1,4 +1,4 @@
-package com.michabond.rest;
+package com.michabond.rest.issue;
 
 
 import com.atlassian.jira.component.ComponentAccessor;
@@ -9,11 +9,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@XmlRootElement(name = "issues")
+@XmlRootElement(name = "issue")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class IssueSearchResourceModel {
 

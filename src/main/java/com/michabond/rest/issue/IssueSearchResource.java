@@ -1,4 +1,4 @@
-package com.michabond.rest;
+package com.michabond.rest.issue;
 
 
 import com.atlassian.jira.bc.issue.search.SearchService;

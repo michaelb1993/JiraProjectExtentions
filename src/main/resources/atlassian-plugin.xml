@@ -9,13 +9,17 @@
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="jpext"/>
+
+    <ao key="ao-module">
+        <description>The module configuring the Active Objects service used by this plugin</description>
+        <entity>com.michabond.ao.User</entity>
+        <entity>com.michabond.ao.Subscription</entity>
+    </ao>
     
     <!-- add our web resources -->
     <web-resource key="jpext-resources" name="jpext Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-
         <resource type="download" name="images/" location="/images"/>
-
         <context>jpext</context>
     </web-resource>
 

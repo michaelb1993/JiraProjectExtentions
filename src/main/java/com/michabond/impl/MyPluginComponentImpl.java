@@ -1,5 +1,6 @@
 package com.michabond.impl;
 
+import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.jira.bc.issue.search.SearchService;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
@@ -18,6 +19,9 @@ public class MyPluginComponentImpl implements MyPluginComponent
 
     @ComponentImport
     private SearchService searchService;
+
+    @ComponentImport
+    private ActiveObjects activeObjects;
 
     @Inject
     public MyPluginComponentImpl(final ApplicationProperties applicationProperties)

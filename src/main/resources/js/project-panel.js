@@ -70,3 +70,26 @@ AJS.toInit(function(){
 
     initIssueSearch(restUrl);
 });
+
+
+function subscribe() {
+    var baseUrl = AJS.params.baseURL;
+    var restUrl = baseUrl + '/rest/jpext/1.0';
+
+    AJS.$.ajax({
+        type: 'post',
+        url: restUrl + '/subscription',
+        data: JSON.stringify({
+            username: "macho1",
+            companyName: 'facebook'
+        }),
+        contentType: "application/json; charset=utf-8",
+        async: true,
+        success: function (data) {
+            console.log("Success: " + data);
+        },
+        error : function (response) {
+            console.log("Error: " + response.responseText);
+        }
+    });
+}
