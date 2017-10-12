@@ -1,6 +1,7 @@
 package com.michabond.ao.accessor;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
+import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.michabond.ao.Subscription;
 import com.michabond.ao.User;
 import com.michabond.rest.subscription.SubscriptionResourceModel;
@@ -13,6 +14,7 @@ import javax.inject.Named;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+@ExportAsService({AOSubscriptionService.class})
 @Named
 public class AOSubscriptionServiceImpl implements AOSubscriptionService {
 
