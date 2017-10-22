@@ -66,7 +66,7 @@ var initIssueSearch = function() {
 AJS.toInit(function(){
     AJS.log('JPEXT: Project Panel initializing ...');
     JPEXT.baseUrl = AJS.params.baseURL;
-    JPEXT.restUrl = baseUrl + '/rest/jpext/1.0';
+    JPEXT.restUrl = JPEXT.baseUrl + '/rest/jpext/1.0';
 
     initIssueSearch();
 });
