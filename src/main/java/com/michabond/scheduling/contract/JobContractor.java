@@ -22,7 +22,7 @@ public class JobContractor {
      * Class related
      */
 
-    public static final long DEFAULT_JOB_INTERVAL = 60 * 1000L;
+    public static final long DEFAULT_JOB_INTERVAL = 60 * 60 * 1000L; // 1 hours
 
     //
     //  DB garbage collector job
