@@ -1,7 +1,7 @@
 package com.michabond.rest.subscription;
 
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
-import com.michabond.ao.accessor.AOSubscriptionService;
+import com.michabond.ao.accessor.SubscriptionDao;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,11 +16,11 @@ import javax.ws.rs.core.Response;
 @Path("/subscription")
 public class SubscriptionResource {
 
-    private AOSubscriptionService aoSbS;
+    private SubscriptionDao subscriptionDao;
 
     @Inject
-    public SubscriptionResource(AOSubscriptionService aoSubscriptionService) {
-        this.aoSbS = aoSubscriptionService;
+    public SubscriptionResource(SubscriptionDao subscriptionDao) {
+        this.subscriptionDao = subscriptionDao;
     }
 
     @GET
@@ -34,9 +34,9 @@ public class SubscriptionResource {
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @AnonymousAllowed
-    public Response addUserToWeek(SubscriptionResourceModel subscriptionParams) {
+    public Response addUserSubscription(SubscriptionResourceModel subscriptionParams) {
         try {
-            this.aoSbS.addSubscription(subscriptionParams);
+            this.subscriptionDao.addSubscription(subscriptionParams);
             return Response.ok("ok").build();
         }
         catch (Exception e) {

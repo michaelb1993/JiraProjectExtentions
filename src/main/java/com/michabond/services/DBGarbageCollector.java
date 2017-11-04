@@ -4,7 +4,7 @@ import com.atlassian.configurable.ObjectConfiguration;
 import com.atlassian.configurable.ObjectConfigurationException;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.service.AbstractService;
-import com.michabond.ao.accessor.AOSubscriptionService;
+import com.michabond.ao.accessor.SubscriptionDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,10 +13,10 @@ public class DBGarbageCollector extends AbstractService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DBGarbageCollector.class);
 
-    private AOSubscriptionService aoSubscriptionService;
+    private SubscriptionDao subscriptionDao;
 
     public DBGarbageCollector() {
-        this.aoSubscriptionService = ComponentAccessor.getOSGiComponentInstanceOfType(AOSubscriptionService.class);
+        this.subscriptionDao = ComponentAccessor.getOSGiComponentInstanceOfType(SubscriptionDao.class);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DBGarbageCollector extends AbstractService {
     @Override
     public void run() {
         LOGGER.warn("Collecting garbage ..");
-        this.aoSubscriptionService.collectGarbage();
+        this.subscriptionDao.collectGarbage();
         LOGGER.warn("Finished collecting garbage :)");
     }
 }

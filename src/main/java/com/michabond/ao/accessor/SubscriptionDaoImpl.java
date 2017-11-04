@@ -1,6 +1,7 @@
 package com.michabond.ao.accessor;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
+import com.atlassian.activeobjects.tx.Transactional;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.michabond.ao.Subscription;
 import com.michabond.ao.User;
@@ -14,18 +15,19 @@ import javax.inject.Named;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-@ExportAsService({AOSubscriptionService.class})
+@ExportAsService({SubscriptionDao.class})
 @Named
-public class AOSubscriptionServiceImpl implements AOSubscriptionService {
+@Transactional
+public class SubscriptionDaoImpl implements SubscriptionDao {
 
     private static final String EMPTY = "";
     private static final long SUBSCRIPTION_EXPIRATION_PERIOD = 60 * 1000;
-    private static final Logger LOGGER = LoggerFactory.getLogger(AOSubscriptionServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SubscriptionDaoImpl.class);
 
     private ActiveObjects ao;
 
     @Inject
-    public AOSubscriptionServiceImpl(ActiveObjects activeObjects) {
+    public SubscriptionDaoImpl(ActiveObjects activeObjects) {
         this.ao = activeObjects;
     }
 
