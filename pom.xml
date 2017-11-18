@@ -181,6 +181,8 @@
                     <productDataVersion>${jira.version}</productDataVersion>
                     <!-- Add the productDataPath configuration here -->
                     <productDataPath>${project.basedir}/src/test/resources/generated-test-resources.zip</productDataPath>
+                    <!-- Disable YUI -->
+                    <compressResources>false</compressResources>
                     <!-- Uncomment to install TestKit backdoor in JIRA. -->
                     <!--
                     <pluginArtifacts>

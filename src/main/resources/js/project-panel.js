@@ -1,19 +1,19 @@
-var showSuccessFlag = function(message) {
+function showSuccessFlag(message) {
     require(['aui/flag'], function(flag) {
-        var myFlag = flag({
+        let myFlag = flag({
             type: 'success',
             title: 'Kitchen Duty Plugin',
             close: 'auto',
             body: message
         });
     });
-};
+}
 
-var initIssueSearch = function() {
-    var templateIssueSearch = JIRA.Templates.JPEXT.issueSearch();
-    var currentProjectKey = JIRA.API.Projects.getCurrentProjectKey();
+function initIssueSearch() {
+    let templateIssueSearch = JIRA.Templates.JPEXT.issueSearch();
+    let currentProjectKey = JIRA.API.Projects.getCurrentProjectKey();
 
-    var auiUserSelectOptions = {
+    let auiUserSelectOptions = {
         ajax: {
             url: function () {
                 return JPEXT.restUrl + '/issue/' + currentProjectKey + '/search';
@@ -61,7 +61,7 @@ var initIssueSearch = function() {
         {
             gravity: 'w'
         });
-};
+}
 
 AJS.toInit(function(){
     AJS.log('JPEXT: Project Panel initializing ...');
@@ -73,8 +73,8 @@ AJS.toInit(function(){
 
 
 function subscribe() {
-    var baseUrl = AJS.params.baseURL;
-    var restUrl = baseUrl + '/rest/jpext/1.0';
+    let baseUrl = AJS.params.baseURL;
+    let restUrl = baseUrl + '/rest/jpext/1.0';
 
     AJS.$.ajax({
         type: 'post',
