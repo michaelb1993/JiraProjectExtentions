@@ -167,6 +167,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/jcifs/jcifs -->
+        <dependency>
+            <groupId>jcifs</groupId>
+            <artifactId>jcifs</artifactId>
+            <version>${jcifs.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -266,6 +273,7 @@
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
         <quick.reload.version>1.30.2</quick.reload.version>
         <spring.version>5.0.1.RELEASE</spring.version>
+        <jcifs.version>1.3.17</jcifs.version>
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <!-- TestKit version 6.x for JIRA 6.x -->
