@@ -12,7 +12,7 @@ import com.atlassian.activeobjects.tx.Transactional;
 import com.atlassian.event.api.EventListener;
 import com.atlassian.event.api.EventPublisher;
 import com.atlassian.plugin.event.events.PluginEnabledEvent;
-import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsDevService;
+import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.sal.api.lifecycle.LifecycleAware;
 import com.atlassian.scheduler.JobRunner;
 import com.atlassian.scheduler.SchedulerService;
@@ -74,7 +74,7 @@ import org.springframework.beans.factory.InitializingBean;
  *
  * @since v1.0
  */
-@ExportAsDevService
+@ExportAsService
 @Named
 public class PluginLauncher implements LifecycleAware, InitializingBean, DisposableBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(PluginLauncher.class);
