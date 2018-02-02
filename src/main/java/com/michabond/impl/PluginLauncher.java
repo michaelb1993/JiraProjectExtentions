@@ -14,16 +14,12 @@ import com.atlassian.event.api.EventPublisher;
 import com.atlassian.plugin.event.events.PluginEnabledEvent;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.sal.api.lifecycle.LifecycleAware;
-import com.atlassian.scheduler.JobRunner;
 import com.atlassian.scheduler.SchedulerService;
-import com.atlassian.scheduler.config.JobRunnerKey;
 
 import com.michabond.scheduling.Exceptions.SchedulingException;
 import com.michabond.scheduling.ScheduleManager;
-import com.michabond.scheduling.contract.Contract;
 import com.michabond.scheduling.contract.JobContractor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -77,7 +73,7 @@ import org.springframework.beans.factory.InitializingBean;
 @ExportAsService
 @Named
 public class PluginLauncher implements LifecycleAware, InitializingBean, DisposableBean {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PluginLauncher.class);
+    private static final Logger LOGGER = Logger.getLogger(PluginLauncher.class);
     private static final String PLUGIN_KEY = "com.michabond.jpext";
 
     private final ActiveObjects ao;
@@ -207,7 +203,6 @@ public class PluginLauncher implements LifecycleAware, InitializingBean, Disposa
         LOGGER.warn("LAUNCH!");
         initActiveObjects();
         registerJobRunners();
-
         createSchedules();
         LOGGER.warn("launched successfully");
     }

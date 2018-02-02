@@ -4,8 +4,7 @@ import jcifs.smb.NtlmPasswordAuthentication;
 import jcifs.smb.SmbException;
 import jcifs.smb.SmbFile;
 import jcifs.smb.SmbFileOutputStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -19,7 +18,7 @@ public class FileUtils {
     private static final String SMB_PASSWORD = null; //"myPassword#"
     private static final String SMB_PATH = "smb://MIKEASUS_PC/tshare/";
     // Logger
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileUtils.class);
+    private static final Logger LOGGER = Logger.getLogger(FileUtils.class);
 
 
     public static void dumpRemoteShare(String data) throws IOException {

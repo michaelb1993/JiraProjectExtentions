@@ -9,22 +9,19 @@ import com.atlassian.scheduler.status.JobDetails;
 
 import com.michabond.scheduling.Exceptions.SchedulingException;
 import com.michabond.scheduling.contract.Contract;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Map;
 import java.util.Random;
 
 
 @Named
 public class ScheduleManagerImpl implements ScheduleManager {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleManagerImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(ScheduleManagerImpl.class);
     private static final Random RANDOM = new Random();
 
     // A minimum amount of time, in milliseconds, to wait before the job runs for the first time.  If you

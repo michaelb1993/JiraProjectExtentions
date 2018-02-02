@@ -7,8 +7,7 @@ import com.michabond.ao.Subscription;
 import com.michabond.ao.User;
 import com.michabond.rest.subscription.SubscriptionResourceModel;
 import com.michabond.rest.subscription.exceptions.BadParametersException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,7 +21,7 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 
     private static final String EMPTY = "";
     private static final long SUBSCRIPTION_EXPIRATION_PERIOD = 60 * 1000;
-    private static final Logger LOGGER = LoggerFactory.getLogger(SubscriptionDaoImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(SubscriptionDaoImpl.class);
 
     private ActiveObjects ao;
 

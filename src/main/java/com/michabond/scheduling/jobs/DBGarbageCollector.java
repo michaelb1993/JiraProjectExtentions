@@ -6,9 +6,7 @@ import com.atlassian.scheduler.JobRunnerResponse;
 import com.atlassian.scheduler.status.JobDetails;
 
 import com.michabond.ao.accessor.SubscriptionDao;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -44,7 +42,7 @@ import javax.inject.Named;
 @Named
 public class DBGarbageCollector implements JobRunner {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(com.michabond.services.DBGarbageCollector.class);
+    private static final Logger LOGGER = Logger.getLogger(com.michabond.services.DBGarbageCollector.class);
 
     private SubscriptionDao subscriptionDao;
 
